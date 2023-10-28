@@ -11,9 +11,8 @@ export default async function Page() {
     objectId: userInfo?._id,
     username: userInfo?.username || user?.username,
     name: userInfo?.name || user?.firstName || "",
-    bio:userInfo?.bio || "",
-    image:userInfo?.image || user?.imageUrl
-
+    bio: userInfo?.bio || "",
+    image: userInfo?.image || user?.imageUrl,
   };
 
   return (
@@ -22,8 +21,8 @@ export default async function Page() {
       <p className="mt-3 text-base-regular text-light-2">
         Complete your profile now to use Threads
       </p>
-      <section className="mt-9 bg-dark-2 p-10">
-        <AccountProfile user={userData}  btnTitle="Continue/>
+      <section className="mt-9 rounded-lg bg-dark-2 p-10">
+        <AccountProfile user={userData} btnTitle="Continue" />
       </section>
     </main>
   );
