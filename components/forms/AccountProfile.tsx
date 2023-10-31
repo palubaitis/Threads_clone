@@ -132,6 +132,7 @@ const AccountProfile = ({ user }: Props, { btnTitle }: Props) => {
                   onChange={(e) => handleImage(e, field.onChange)}
                 />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />{" "}
@@ -150,6 +151,7 @@ const AccountProfile = ({ user }: Props, { btnTitle }: Props) => {
                   {...field}
                 />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -167,7 +169,8 @@ const AccountProfile = ({ user }: Props, { btnTitle }: Props) => {
                   className="account-form_input no-focus"
                   {...field}
                 />
-              </FormControl>
+              </FormControl>{" "}
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -185,7 +188,8 @@ const AccountProfile = ({ user }: Props, { btnTitle }: Props) => {
                   className="account-form_input no-focus"
                   {...field}
                 />
-              </FormControl>
+              </FormControl>{" "}
+              <FormMessage />
             </FormItem>
           )}
         />

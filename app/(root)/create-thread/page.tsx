@@ -1,3 +1,4 @@
+import PostThread from "@/components/forms/PostThread";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
@@ -10,5 +11,10 @@ export default async function Page() {
 
   if(!userInfo?.onboarded) redirect('/onboarding')
 
-  return <h1 className="text-left head-text">Create Thread</h1>;
+  return (
+    <>
+  <h1 className="text-left head-text">Create Thread</h1>
+  <PostThread userId={userInfo._id} />
+  </>
+  );
 }
