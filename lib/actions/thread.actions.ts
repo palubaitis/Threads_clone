@@ -38,11 +38,13 @@ export async function createThread({
 }
 
 export async function fetchPosts(pageNumber = 1, pageSize = 20) {
-  connectToDB();
+  await connectToDB();
 
   const skipAmount = (pageNumber - 1) * pageSize;
 
-  const postsQuery = Thread.find({ parentId: { $in: [null, undefined] } })
+  // aggregate
+
+  const posts = await Thread.find({ parentId: { $in: [null, undefined] } })
     .sort({ createdAt: "desc" })
     .skip(skipAmount)
     .limit(pageSize)
@@ -59,7 +61,7 @@ export async function fetchPosts(pageNumber = 1, pageSize = 20) {
     parentId: { $in: [null, undefined] },
   });
 
-  const posts = await postsQuery.exec();
+  // const posts = await postsQuery.exec();
 
   const isNext = totalPostsCount > skipAmount + posts.length;
 
